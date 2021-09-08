@@ -3,5 +3,48 @@ centos设置主机名
 
 hostnamectl set-hostname xxx
 bash 刷新显示
+===================================================
+
+linux位置/etc/hosts  
+
+===================================================
+
+linux主机配置位置/etc/hostname
+
+===================================================
+
+linux ip配置
+"1 设置主机名。执行如下命令修改即可 
+  vim /etc/hostname
+
+2 设置ip。https://www.cnblogs.com/adforce/p/3363681.html
+进入如下目录/etc/sysconfig/network-scripts/
+
+查找指定的网卡配置文件，比如ifcfg-ens33。其完整路径为:
+/etc/sysconfig/network-scripts/ifcfg-ens33
+
+注意:BOOTPROTO=static ONBOOT=yes IPADDR=xx
+
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=static
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=ens33
+UUID=bfc29807-088c-4d27-9afd-5935714a48d0
+DEVICE=ens33
+ONBOOT=yes
+IPADDR=192.168.2.101
+GATEWAY=192.168.2.1
+DNS1=116.77.76.254"
+
+然后执行如下命令
+systemctl restart network
 
 ===================================================
